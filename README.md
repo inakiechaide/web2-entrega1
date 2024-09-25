@@ -1,9 +1,14 @@
+Integrantes: Echaide Iñaki, Velez Matias.
+
+
 Sistema de Gestión de Turnos de Centro Medico
 
 El sistema está diseñado para gestionar los turnos entre los clientes.
 
 
-Diagrama de la base de datos (Diagrama-bd-gestion_turnos.jpg)
+Diagrama de la base de datos 
+
+![base de batos](https://github.com/inakiechaide/web2-entrega1/blob/master/diagrama-primer-entrega.jpg)
 
 El diagrama muestra las relaciones entre las tablas:
 
