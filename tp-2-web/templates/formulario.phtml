@@ -1,0 +1,34 @@
+<?php require 'templates/layout/header.phtml'; ?>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Agregar Turno</h2>
+        <form id="formulario" action="agregar" method="post" class="mt-4">
+            <div class="form-group">
+                <label for="id_cliente">ID del Cliente:</label>
+                <select id="id_cliente" name="id_cliente" class="form-control">
+                    <?php
+                    foreach ($clientes as $cliente): ?>
+                        <option value="<?= $cliente['id_cliente']; ?>">
+                            <?= $cliente['nombre']; ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fecha_turno">Fecha de Turno:</label>
+                <input type="date" id="fecha_turno" name="fecha_turno" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="hora_turno">Hora de Turno:</label>
+                <input type="time" id="hora_turno" name="hora_turno" class="form-control" />
+            </div>
+
+            <button type="submit" id="enviar-formulario" class="btn btn-primary btn-block">Cargar Turno</button>
+        </form>
+    </div>
+
+    <!-- saque los required del front para que los tome el backend-->
+    <?php require 'templates/layout/footer.phtml'; ?>

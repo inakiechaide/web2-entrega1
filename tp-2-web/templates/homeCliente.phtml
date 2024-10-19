@@ -1,0 +1,23 @@
+<?php require 'templates/layout/header.phtml'; ?>
+
+<h1 class="text-center">Listado de Clientes</h1>
+    <?php foreach ($clientes as $cliente): ?>
+        <li class="list-group-item item-task ">
+            
+                <!-- Mostrar la foto del cliente si existe -->
+            <?php if (!empty($cliente->foto)): ?>
+                <img src="<?= $cliente->foto ?>" alt="Foto de <?= $cliente->nombre ?>" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 10px;">
+            <?php endif; ?>
+             
+                <b> nombre cliente: </b> <?= $cliente-> nombre   ?> 
+                <b> Telefono: </b> <?= $cliente-> telefono ?> 
+                <b> Email: </b> <?= $cliente-> email ?> 
+                <div class="actions">
+                <a href="turnosClientesSinLog/<?= $cliente->id_cliente ?>" type="button" class='btn btn-info btn-sm ml-auto detalles-btn'>Turnos</a>
+                </div>
+        </li>
+    <?php endforeach ?>
+</ul>
+    </div>
+
+    <?php require 'templates/layout/footer.phtml'; ?>

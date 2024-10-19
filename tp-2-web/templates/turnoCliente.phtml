@@ -1,0 +1,46 @@
+<?php require 'templates/layout/header.phtml'; ?>
+
+
+<!--llega el nombre_cliente en el arreglo turno agregado en mostrarTurnos()-->
+
+<ul class="list-group">
+        <h1>
+            <?php if (!empty($turnos)): ?>
+                Turnos de: <?= $turnos[0]->nombre_cliente ?>
+                 <!-- Si el cliente tiene una foto guardada, mostrarla -->
+                 <?php if (!empty($turnos[0]->foto)): ?>
+    <div class="mt-3">
+        <img src="uploads/<?= basename($turnos[0]->foto) ?>" alt="Foto de <?= $turnos[0]->nombre_cliente ?>" class="img-thumbnail" style="width: 150px; height: 150px;">
+    </div>
+<?php endif; ?>
+
+            <?php else: ?>
+                El cliente no tiene turnos.
+            <?php endif; ?>
+        </h1>
+
+    <?php foreach ($turnos as $turno): ?>
+        <li class="list-group-item item-task <?php if ($turno->finalizado): ?> finished <?php endif ?>">
+            <div class="label">
+                <b>ID Turno:</b> <?= $turno->id_turno ?> |
+                <b>Fecha:</b> <?= $turno->fecha_turno ?> |
+                <b>Hora:</b> <?= $turno->hora_turno ?>
+            </div>
+            <div class="actions">
+                <?php if (!$turno->finalizado): ?>
+                    <a href="completar/<?= $turno->id_turno ?>" type="button" class='btn btn-success btn-sm ml-auto'>Cancelar
+                        Turno</a>
+                <?php endif ?>
+                <a href="editarT/<?= $turno->id_turno ?>" type="button" class='btn btn-danger btn-sm ml-auto editar-btn'>Editar</a>
+                <a href="eliminar/<?= $turno->id_turno ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Borrar</a>
+
+            </div>
+        </li>
+    <?php endforeach ?>
+    
+</ul>
+<a href="formulario" type="button" class="btn btn-primary btn-block">Agregar Turno</a>
+
+<p class="mt-3"><small>Mostrando <?= count($turnos) ?> turnos</small></p>
+
+<?php require 'templates/layout/footer.phtml'; ?>

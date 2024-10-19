@@ -1,0 +1,22 @@
+<?php require 'templates/layout/header.phtml'; ?>
+
+
+
+
+    <div class="label">
+
+        <p><b>Detalles del turno del cliente:</b> <?= $turno->nombre_cliente ?> </p>
+        <b>ID Turno:</b> <?= $turno->id_turno ?> |
+        <b>Fecha:</b> <?= $turno->fecha_turno ?> |
+        <b>Hora:</b> <?= $turno->hora_turno ?>
+        
+    </div>
+    <div class="actions">
+                <a href="homeTurno" type="button" class='btn btn-danger btn-sm ml-auto'>Volver</a>
+
+    </div>
+
+
+
+    <?php require 'templates/layout/footer.phtml'; ?>
+  

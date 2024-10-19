@@ -1,0 +1,32 @@
+<?php require 'templates/layout/header.phtml'; ?>
+
+
+<!--llega el nombre_cliente en el arreglo turno agregado en mostrarTurnos()-->
+
+<ul class="list-group">
+<h1 class="text-center">Listado de Clientes</h1>
+    <?php foreach ($clientes as $cliente): ?>
+        <li class="list-group-item item-task ">
+            <div class="label">
+                <!-- Mostrar la foto del cliente si existe -->
+            <?php if (!empty($cliente->foto)): ?>
+                <img src="<?= $cliente->foto ?>" alt="Foto de <?= $cliente->nombre ?>" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 10px;">
+            <?php endif; ?>
+                <b>ID Cliente:</b>  <?= $cliente->id_cliente ?> 
+                <b>nombre cliente:</b>  <?= $cliente-> nombre ?> 
+                <b>Telefono:</b>  <?= $cliente-> telefono ?> 
+                <b>Email:</b>  <?= $cliente-> email ?> 
+            </div>
+
+            <div class="actions">
+                    
+                <a href="turnosClientes/<?= $cliente->id_cliente ?>" type="button" class='btn btn-success btn-sm ml-auto'>Turnos</a>
+                <a href="eliminarCliente/<?= $cliente->id_cliente ?>" type="button" class='btn btn-danger btn-sm ml-auto borrar-btn'>Borrar</a>
+                <a href="editar/<?= $cliente->id_cliente ?>" type="button" class='btn btn-info btn-sm ml-auto detalles-btn'>Editar</a>
+
+            </div> 
+        </li>
+    <?php endforeach ?>
+</ul>   
+<a href="formCliente" type="button" class="btn btn-primary btn-block">Nuevo cliente</a>
+<?php require 'templates/layout/footer.phtml'; ?>

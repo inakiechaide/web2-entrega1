@@ -1,0 +1,23 @@
+<?php require 'templates/layout/header.phtml'; ?>
+
+
+<li class="list-group-item item-task <?php if ($turno->finalizado): ?> finished <?php endif ?>">
+
+    <div class="label">
+
+        <b>Detalles del turno del cliente: </b> <?= $turno->nombre_cliente ?> 
+        <b>  ID Turno:</b> <?= $turno->id_turno ?> |
+        <b>Fecha:</b> <?= $turno->fecha_turno ?> |
+        <b>Hora:</b> <?= $turno->hora_turno ?>
+
+    </div>
+
+
+    <div class="actions">
+    <a href="listar" type="button" class='btn btn-danger btn-sm ml-auto'>Volver</a>
+
+        </li>
+        <a href="formulario" type="button" class="btn btn-primary btn-block">Agregar Turno</a>
+
+
+    <?php require 'templates/layout/footer.phtml'; ?>

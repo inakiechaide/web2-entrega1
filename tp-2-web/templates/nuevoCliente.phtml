@@ -1,0 +1,33 @@
+<?php require 'templates/layout/header.phtml'; ?>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Agregar Cliente</h2>
+        <form id="formulario" action="agregarCliente" method="post" class="mt-4" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="nombre">Nombre del cliente:</label>
+                <input type="text" id="nombre" name="nombre" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Telefono:</label>
+                <input type="text" id="telefono" name="telefono" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" class="form-control" />
+            </div>
+            <!-- Campo para subir la foto del cliente -->
+            <div class="form-group">
+                <label for="foto">Foto del cliente:</label>
+                <input type="file" id="foto" name="foto" class="form-control-file" accept="image/*" />
+            </div>
+
+            <button type="submit" id="enviar-formulario" class="btn btn-primary btn-block">Cargar Cliente</button>
+        </form>
+    </div>
+
+    <!-- saque los required del front para que los tome el backend-->
+    <?php require 'templates/layout/footer.phtml'; ?>

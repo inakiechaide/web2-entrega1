@@ -1,0 +1,25 @@
+<?php require 'templates/layout/header.phtml'; ?>
+
+
+
+<div class="container mt-5">
+<ul class="list-group">
+    <h1 class="text-center">Listado de Turnos</h1>
+    <?php foreach ($turnos as $turno): ?>
+        <li class="list-group-item item-task <?php if ($turno->finalizado): ?> finished <?php endif ?>">
+          
+
+            <b>Nombre Cliente:</b> <?= isset($turno->nombre_cliente) ? $turno->nombre_cliente : 'No disponible' ?>
+            <b>Fecha:</b> <?= $turno->fecha_turno ?> 
+            
+            <div class="actions">
+                    <a href="detalle/<?= $turno->id_turno ?>" type="button" class='btn btn-info btn-sm ml-auto detalles-btn'>Detalles</a>
+                    
+                </div>
+        </li>
+        
+    <?php endforeach ?>
+    
+
+<?php require 'templates/layout/footer.phtml'; ?>
+
